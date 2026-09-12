@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dados · Maringá em Ação pelo Clima</title>
+<meta name="description" content="O banco do projeto em CSV e JSON, com dicionário de dados.">
+<meta property="og:title" content="Dados · Maringá em Ação pelo Clima">
+<meta property="og:description" content="O banco do projeto em CSV e JSON, com dicionário de dados.">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="index.html">
+    <img src="marca/brisa.png" alt="Brisa Soluções Ambientais">
+    <b>Maringá em Ação pelo Clima <i>· Hub</i></b>
+  </a>
+  <nav class="menu"><a href="index.html">Início</a><a href="painel.html">Painel de evidências</a><a href="conselhos.html">Conselhos</a><a href="instituicoes.html">Instituições</a><a href="legislacao.html">Legislação</a><a href="transcricoes.html">Transcrições</a><a href="dados.html" aria-current="page">Dados</a></nav>
+</div></header>
+
+<main class="wrap">
+
+<h1>Dados abertos</h1>
+
+<p class="lede">O banco inteiro do projeto, em CSV e JSON, com dicionário de dados.
+Publicado para que qualquer pessoa possa conferir o que afirmamos, reanalisar o
+material por outro recorte, ou reaproveitá-lo em outro município.</p>
+
+<div class="tw"><table>
+<thead><tr><th>Arquivo</th><th class="num">Registros</th><th>O que contém</th></tr></thead>
+<tbody><tr><td><a href="dados/evidencias.csv"><code>evidencias.csv</code></a></td><td class="num">494</td><td>A unidade de registro: cada evidência com trecho, paráfrase, dimensão, maturidade e alinhamento.</td></tr><tr><td><a href="dados/sessoes.csv"><code>sessoes.csv</code></a></td><td class="num">17</td><td>Camada anonimizada das sessões — setor, tipo institucional, duração, turnos. Sem nomes.</td></tr><tr><td><a href="dados/dimensoes.csv"><code>dimensoes.csv</code></a></td><td class="num">55</td><td>As dimensões da metodologia CCFLA/CEPAL com eixo, subcategoria, prioridade e léxico.</td></tr><tr><td><a href="dados/comdema.csv"><code>comdema.csv</code></a></td><td class="num">124</td><td>Composição do conselho municipal de meio ambiente, 2021–2026, por conselheiro.</td></tr><tr><td><a href="dados/organizacoes.csv"><code>organizacoes.csv</code></a></td><td class="num">34</td><td>Mapeamento institucional do Produto 3, classificado pelas dimensões analíticas.</td></tr><tr><td><a href="dados/legislacao.csv"><code>legislacao.csv</code></a></td><td class="num">22</td><td>Normas municipais que formam o arcabouço climático, com ementa.</td></tr><tr><td><a href="dados/corpus.json"><code>corpus.json</code></a></td><td class="num">1</td><td>Métricas agregadas, sessões e dimensões num só arquivo, para consumo por código.</td></tr></tbody></table></div>
+
+<h2>Dicionário de dados</h2>
+
+<h3>evidencias.csv — a unidade de registro</h3>
+<p>Cada linha é uma evidência: um trecho anonimizado vinculado a <strong>uma</strong>
+dimensão. Um mesmo trecho de fala pode gerar duas evidências em dimensões
+diferentes.</p>
+<div class="tw"><table>
+<thead><tr><th>Campo</th><th>Conteúdo</th></tr></thead><tbody>
+<tr><td><code>interview</code></td><td>Código da sessão (<code>ENT-0xx</code>).</td></tr>
+<tr><td><code>dim</code></td><td>Código da dimensão CCFLA/CEPAL, das 55 priorizadas.</td></tr>
+<tr><td><code>question</code></td><td>Pergunta do instrumental que suscitou a fala, quando aplicável.</td></tr>
+<tr><td><code>type</code></td><td><code>declaracao</code> (fato afirmado) · <code>percepcao</code> (avaliação do participante) · <code>lacuna</code> (ausência declarada ou constatada) · <code>divergencia</code> (conflito com outra fonte) · <code>oportunidade</code> (caminho apontado) · <code>documento_indicado</code> (pista documental).</td></tr>
+<tr><td><code>excerpt</code></td><td>Trecho literal anonimizado, precedido do rótulo do falante.</td></tr>
+<tr><td><code>paraphrase</code></td><td>O juízo analítico do codificador: o que a evidência estabelece. É o que se cita no relatório; o trecho fica como lastro.</td></tr>
+<tr><td><code>ts</code></td><td>Marca de tempo do turno na gravação, <code>HH:MM:SS</code>.</td></tr>
+<tr><td><code>maturity</code></td><td>Estado da condição avaliada: <code>sem_evidencia</code> · <code>nao_aplicavel</code> · <code>inexistente</code> · <code>em_elaboracao</code> · <code>formalizado</code> · <code>regulamentado</code> · <code>em_implementacao</code> · <code>monitorado</code> · <code>efetivo</code>. A distinção entre <code>sem_evidencia</code> (pendência) e <code>inexistente</code> (achado) é a que mais protege o diagnóstico.</td></tr>
+<tr><td><code>alignment</code></td><td>Relação com o que outras sessões disseram sobre a mesma dimensão: <code>convergente</code> · <code>complementar</code> · <code>divergente</code> · <code>isolada</code>.</td></tr>
+<tr><td><code>confidence</code></td><td><code>alta</code> · <code>media</code> · <code>baixa</code>. Baixa quando o participante remete a outro órgão, quando a formulação partiu do entrevistador e foi apenas confirmada, ou quando o trecho é ambíguo.</td></tr>
+</tbody></table></div>
+
+<h3>sessoes.csv — a camada anonimizada das entrevistas</h3>
+<p>Uma linha por sessão. <strong>Nunca contém nome.</strong> O participante é
+descrito por setor e por tipo institucional genérico; a identificação vive fora
+deste banco e fora do repositório.</p>
+
+<h3>dimensoes.csv — as 55 dimensões</h3>
+<p>Os quatro eixos da metodologia CCFLA/CEPAL desdobrados em subcategorias e
+dimensões, com a prioridade atribuída a Maringá no Produto 2 e o léxico de busca
+usado na pré-triagem.</p>
+
+<h3>comdema.csv e organizacoes.csv</h3>
+<p>Composição do conselho municipal de meio ambiente e mapeamento institucional do
+Produto 3. Ambos derivam de fonte pública — portaria de nomeação e pesquisa
+documental —, não das entrevistas.</p>
+
+<h2>Como citar</h2>
+<div class="nota">
+  <p>Projeto Maringá em Ação pelo Clima (2026). <em>Avaliação das condições
+  habilitantes ao financiamento climático urbano de Maringá</em>. Consultoria técnica
+  IPPLAM–CEPAL/ONU, metodologia CCFLA/CEPAL. Base de evidências, 494
+  registros. Disponível no Hub do projeto.</p>
+</div>
+
+<h2>Limites do que está aqui</h2>
+<p>Quatro dimensões seguem sem fonte oral — <code>1.1.2</code>, <code>1.1.3</code>, <code>2.5.4</code>, <code>2.5.5</code> —
+e essa ausência é resultado, não falha: elas são matéria de verificação documental,
+em PPA, LDO, LOA, quadro de detalhamento da despesa e relatórios de execução. As
+evidências de confiança <code>baixa</code> estão marcadas como tais e não devem ser
+lidas como equivalentes às demais. E a paráfrase é juízo do codificador: quem
+discordar dela tem, ao lado, o trecho que a originou.</p>
+
+</main>
+<footer class="pe"><div class="wrap">
+  <div class="logos">
+    <img class="brisa" src="marca/brisa.png" alt="Brisa Soluções Ambientais">
+    <img src="marca/cepal.png" alt="CEPAL · Nações Unidas">
+    <span class="txt">Instituto de Pesquisa e Planejamento Urbano de Maringá</span>
+  </div>
+  <p><strong>Projeto Maringá em Ação pelo Clima.</strong> Avaliação das condições
+  habilitantes ao financiamento climático urbano, pela metodologia CCFLA/CEPAL
+  <em>Assessing Subnational Enabling Framework Conditions for Urban Climate Finance</em>.
+  Consultoria técnica de apoio ao projeto de assessoria entre o Instituto de Pesquisa
+  e Planejamento Urbano de Maringá (IPPLAM) e a Comissão Econômica para a América
+  Latina e o Caribe (CEPAL/ONU), executada pela Brisa Soluções Ambientais.</p>
+  <p class="mut">As entrevistas são publicadas em camada anonimizada. Nomes de
+  participantes, contatos e a instituição do próprio entrevistado não entram em
+  nenhuma página deste Hub. A composição dos conselhos municipais é ato público e
+  aparece nominalmente.</p>
+</div></footer>
+
+</body>
+</html>
