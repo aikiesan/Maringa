@@ -9,37 +9,20 @@
 <meta property="og:description" content="Transcrição anonimizada da sessão ENT-015.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maringá em Ação pelo Clima">
-<meta property="og:image" content="marca/onda.png">
+<meta property="og:image" content="marca/projeto.png">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="marca/onda.png" type="image/png">
+<link rel="icon" href="marca/projeto.png" type="image/png">
 <link rel="stylesheet" href="../hub.css">
-<script>
-/* Tema antes da primeira pintura, senao a pagina pisca claro e vira escura.
-   Em try/catch porque o acesso ao localStorage pode lancar (janela privada,
-   dados de site bloqueados, captura de miniatura). */
-(function(){try{var t=localStorage.getItem("tema");
-if(t==="claro"||t==="escuro")
-document.documentElement.setAttribute("data-theme",t==="claro"?"light":"dark");
-}catch(e){}})();
-</script>
+<script>(function(){try{var t=localStorage.getItem('tema');if(t==='claro'||t==='escuro')document.documentElement.setAttribute('data-theme',t==='claro'?'light':'dark');}catch(e){}})();</script>
 </head>
 <body>
-<a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<header class="top"><div class="wrap">
-  <a class="marca" href="../index.html">
-    <img src="marca/brisa.png" alt="Brisa Soluções Ambientais">
-    <b>Maringá em Ação pelo Clima <i>· Hub</i></b>
-  </a>
-  <nav class="menu"><a href="../index.html">Início</a><a href="../projeto.html">O projeto</a><a href="../produto4.html">Produto 04</a><a href="../painel.html">Painel de evidências</a><a href="../conselhos.html">Conselhos</a><a href="../instituicoes.html">Instituições</a><a href="../legislacao.html">Legislação</a><a href="../transcricoes.html" aria-current="page">Transcrições</a></nav>
-  <button class="tema" type="button" id="tema" aria-label="Alternar tema claro e escuro"
-    title="Alternar tema claro e escuro"><span aria-hidden="true">◐</span></button>
-</div></header>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a><header class="hubbar"><div class="hubbar-in"><a class="hubbar-marca" href="../index.html"><img class="marca-clara" src="marca/projeto.png" alt="Maringá em Ação pelo Clima"><img class="marca-escura" src="marca/projeto-branco.png" alt=""></a><nav class="hubbar-menu" aria-label="Navegação do Hub"><a href="../index.html">Início</a><a href="../projeto.html">O projeto</a><a href="../produto4.html">Produto 04</a><a href="../painel.html">Painel de evidências</a><a href="../instituicoes.html">Instituições</a><a href="../transcricoes.html" aria-current="page">Transcrições</a></nav><button class="hubbar-tema" type="button" id="tema" aria-label="Alternar tema claro e escuro" title="Alternar tema claro e escuro"><span aria-hidden="true">◐</span></button></div></header>
 
 <main class="wrap" id="conteudo">
 
 <p class="sm"><a href="../transcricoes.html">&larr; Todas as transcrições</a></p>
 <h1>ENT-015</h1>
-<p class="lede">Setor: Público · Tipo institucional: Gabinete do Executivo municipal · Data: 2026-08-27 · Duração: 59 min · Participantes: 1</p>
+<p class="lede">Setor: Público · Data: 2026-08-27 · Duração: 59 min · Participantes: 1</p>
 
 <div class="nota">
   <p><strong>Camada anonimizada.</strong> Nomes de pessoas foram substituídos por
@@ -73,27 +56,8 @@ document.documentElement.setAttribute("data-theme",t==="claro"?"light":"dark");
   nenhuma página deste Hub. A composição dos conselhos municipais é ato público e
   aparece nominalmente.</p>
 </div></footer>
-<script>
-(function(){
-  var b=document.getElementById("tema"); if(!b) return;
-  var raiz=document.documentElement;
-  function atual(){
-    var t=raiz.getAttribute("data-theme");
-    if(t) return t;
-    return matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
-  }
-  function rotula(){
-    b.setAttribute("aria-pressed", atual()==="dark"?"true":"false");
-  }
-  rotula();
-  b.addEventListener("click", function(){
-    var novo = atual()==="dark" ? "light" : "dark";
-    raiz.setAttribute("data-theme", novo);
-    try{ localStorage.setItem("tema", novo==="dark"?"escuro":"claro"); }catch(e){}
-    rotula();
-  });
-})();
-</script>
+
+<script>(function(){var b=document.getElementById('tema');var raiz=document.documentElement;function atual(){var t=raiz.getAttribute('data-theme');return t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}function rotula(){if(b)b.setAttribute('aria-pressed',atual()==='dark'?'true':'false');}rotula();if(b)b.addEventListener('click',function(){var novo=atual()==='dark'?'light':'dark';raiz.setAttribute('data-theme',novo);try{localStorage.setItem('tema',novo==='dark'?'escuro':'claro');}catch(e){}rotula();});function medir(){var h=document.querySelector('.hubbar');if(!h)return;raiz.style.setProperty('--hubbar-h',Math.round(h.getBoundingClientRect().height)+'px');}addEventListener('resize',medir);medir();})();</script>
 
 </body>
 </html>
