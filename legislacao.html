@@ -7,18 +7,35 @@
 <meta name="description" content="As 22 normas municipais do arcabouço climático de Maringá.">
 <meta property="og:title" content="Legislação · Maringá em Ação pelo Clima">
 <meta property="og:description" content="As 22 normas municipais do arcabouço climático de Maringá.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maringá em Ação pelo Clima">
+<meta property="og:image" content="marca/onda.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="marca/onda.png" type="image/png">
 <link rel="stylesheet" href="hub.css">
+<script>
+/* Tema antes da primeira pintura, senao a pagina pisca claro e vira escura.
+   Em try/catch porque o acesso ao localStorage pode lancar (janela privada,
+   dados de site bloqueados, captura de miniatura). */
+(function(){try{var t=localStorage.getItem("tema");
+if(t==="claro"||t==="escuro")
+document.documentElement.setAttribute("data-theme",t==="claro"?"light":"dark");
+}catch(e){}})();
+</script>
 </head>
 <body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="top"><div class="wrap">
   <a class="marca" href="index.html">
     <img src="marca/brisa.png" alt="Brisa Soluções Ambientais">
     <b>Maringá em Ação pelo Clima <i>· Hub</i></b>
   </a>
-  <nav class="menu"><a href="index.html">Início</a><a href="painel.html">Painel de evidências</a><a href="conselhos.html">Conselhos</a><a href="instituicoes.html">Instituições</a><a href="legislacao.html" aria-current="page">Legislação</a><a href="transcricoes.html">Transcrições</a><a href="dados.html">Dados</a></nav>
+  <nav class="menu"><a href="index.html">Início</a><a href="projeto.html">O projeto</a><a href="produto4.html">Produto 04</a><a href="painel.html">Painel de evidências</a><a href="conselhos.html">Conselhos</a><a href="instituicoes.html">Instituições</a><a href="legislacao.html" aria-current="page">Legislação</a><a href="transcricoes.html">Transcrições</a></nav>
+  <button class="tema" type="button" id="tema" aria-label="Alternar tema claro e escuro"
+    title="Alternar tema claro e escuro"><span aria-hidden="true">◐</span></button>
 </div></header>
 
-<main class="wrap">
+<main class="wrap" id="conteudo">
 
 <h1>Legislação</h1>
 
@@ -82,6 +99,27 @@ publicado pelo município.</p>
   nenhuma página deste Hub. A composição dos conselhos municipais é ato público e
   aparece nominalmente.</p>
 </div></footer>
+<script>
+(function(){
+  var b=document.getElementById("tema"); if(!b) return;
+  var raiz=document.documentElement;
+  function atual(){
+    var t=raiz.getAttribute("data-theme");
+    if(t) return t;
+    return matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+  }
+  function rotula(){
+    b.setAttribute("aria-pressed", atual()==="dark"?"true":"false");
+  }
+  rotula();
+  b.addEventListener("click", function(){
+    var novo = atual()==="dark" ? "light" : "dark";
+    raiz.setAttribute("data-theme", novo);
+    try{ localStorage.setItem("tema", novo==="dark"?"escuro":"claro"); }catch(e){}
+    rotula();
+  });
+})();
+</script>
 <script>
 (function(){
   var q=document.getElementById("q"), fg=document.getElementById("fg"),

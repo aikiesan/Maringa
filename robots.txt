@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aikiesan.github.io/Maringa/sitemap.xml

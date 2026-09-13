@@ -180,7 +180,39 @@ figcaption{font-size:13px; color:var(--ink2); margin-top:11px; max-width:72ch}
 .barra .val{font-variant-numeric:tabular-nums; color:var(--ink2); min-width:34px;
   text-align:right; font-weight:600}
 
+
+/* ---- tema e acesso ------------------------------------------------- */
+.pular{position:absolute; left:-9999px; top:0; z-index:99; padding:10px 16px;
+  background:var(--floresta); color:var(--sobre-marca); border-radius:0 0 8px 0}
+.pular:focus{left:0}
+button.tema{margin-left:10px; font:inherit; font-size:15px; line-height:1;
+  cursor:pointer; background:transparent; color:var(--ink2);
+  border:1px solid var(--grid); border-radius:8px; padding:6px 9px}
+button.tema:hover{background:var(--realce); color:var(--ink)}
+:focus-visible{outline:2px solid var(--s1); outline-offset:2px}
+
 .empilhada{display:grid; gap:9px}
+/* ---- figuras descritivas ------------------------------------------- */
+.fig{margin:22px 0 0; padding:0}
+.fig-t{font-size:15px; margin:0 0 10px; font-weight:700}
+.fig .leg{font-size:13px; color:var(--ink2); margin:9px 0 0; max-width:68ch}
+.barra .frac{color:var(--mut); font-weight:400; margin-left:5px; font-size:12px}
+.numeros{margin:9px 0 0; font-size:13px}
+.numeros>summary{cursor:pointer; color:var(--ink2); width:max-content;
+  padding:3px 2px; border-radius:4px}
+.numeros>summary:focus-visible{outline:2px solid var(--s1); outline-offset:2px}
+.numeros table{border-collapse:collapse; margin:8px 0 0; font-size:13px}
+.numeros th,.numeros td{border-bottom:1px solid var(--grid); padding:5px 12px 5px 0;
+  text-align:left}
+.numeros td.n,.numeros th:last-child{text-align:right; font-variant-numeric:tabular-nums}
+.rolo{overflow-x:auto}
+.multiplos{display:grid; grid-template-columns:repeat(auto-fit,minmax(258px,1fr));
+  gap:18px 26px; margin:4px 0 0}
+.mult-cel h4{font-size:13.5px; margin:0 0 7px; font-weight:700}
+.mult-cel h4 .mut{color:var(--mut); font-weight:400}
+/* folga de 2px entre segmentos: separa as marcas sem inventar uma cor de borda */
+.empilhada .pilha i+i{box-shadow:-2px 0 0 var(--plane)}
+
 .linha-ano{display:grid; grid-template-columns:52px 1fr 44px; gap:12px;
   align-items:center}
 .linha-ano .ano{font-size:13px; color:var(--ink2); font-variant-numeric:tabular-nums}
@@ -241,4 +273,137 @@ footer.pe p{max-width:76ch}
   .linha-ano{grid-template-columns:42px 1fr 38px}
   .turno{grid-template-columns:1fr; gap:1px; padding:10px 0}
   .turno .quem{padding-top:0}
+}
+/* ==== Produto 04 ==================================================== */
+
+.p4-kpi{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px; background:var(--grid); border:1px solid var(--grid);
+  border-radius:10px; overflow:hidden; margin:0 0 22px}
+.p4-kpi>div{background:var(--surface); padding:14px 16px; display:flex;
+  flex-direction:column; gap:2px}
+.p4-kpi b{font-size:26px; line-height:1.05; font-variant-numeric:tabular-nums}
+.p4-kpi span{font-size:12.5px; color:var(--ink2)}
+
+.p4-baixar{margin:0 0 26px; padding:12px 14px; border:1px solid var(--grid);
+  border-left:3px solid var(--s2); border-radius:8px; background:var(--surface)}
+
+/* --- duas colunas: sumario fixo + documento --- */
+.p4{display:grid; grid-template-columns:250px minmax(0,1fr); gap:34px;
+  align-items:start}
+.p4-sum{position:sticky; top:72px; max-height:calc(100vh - 96px);
+  overflow-y:auto; font-size:13px}
+.p4-sum>details{border:1px solid var(--grid); border-radius:8px;
+  background:var(--surface); padding:10px 12px}
+.p4-sum>details>summary{cursor:pointer; font-weight:700; padding:2px 0}
+.p4-sum>details>summary:focus-visible{outline:2px solid var(--s1);
+  outline-offset:2px}
+.sumario ul{list-style:none; margin:8px 0 0; padding:0}
+.sumario ul ul{margin:2px 0 6px 0}
+.sumario a{display:block; padding:3px 6px; border-radius:5px; color:var(--ink2);
+  text-decoration:none; line-height:1.35}
+.sumario a:hover{background:var(--grid); color:var(--ink)}
+.sumario a.aqui{background:var(--s1); color:#fff}
+.sumario .n1>a{font-weight:700; color:var(--ink); margin-top:5px}
+.sumario .cn{display:inline-block; min-width:16px; color:var(--s1);
+  font-variant-numeric:tabular-nums; font-weight:700}
+.sumario .n1>a.aqui .cn{color:#fff}
+.sumario li.n2 a{padding-left:20px; font-size:12.5px}
+.sumario li.n3 a{padding-left:32px; font-size:12.5px; color:var(--mut)}
+
+/* --- o documento --- */
+.p4-doc{max-width:74ch}
+.p4-doc section.cap{scroll-margin-top:78px; margin:0 0 42px}
+.p4-doc h2{display:flex; gap:10px; align-items:baseline;
+  border-bottom:2px solid var(--s1); padding-bottom:8px; margin:0 0 16px}
+.p4-doc h2 .cn{color:var(--s1); font-variant-numeric:tabular-nums}
+.p4-doc h3{margin:26px 0 9px; font-size:17px; scroll-margin-top:78px}
+.p4-doc h4{margin:20px 0 7px; font-size:15px; color:var(--ink2);
+  scroll-margin-top:78px}
+.p4-doc p{margin:0 0 12px}
+.p4-doc blockquote{margin:14px 0; padding:10px 16px; border-left:3px solid var(--grid);
+  color:var(--ink2); font-size:14.5px; background:var(--surface)}
+.p4-doc .quadro-leg{font-size:12.5px; color:var(--mut); margin:14px 0 6px;
+  font-weight:700}
+.p4-doc table.quadro{border-collapse:collapse; font-size:13px; min-width:100%}
+.p4-doc table.quadro th,.p4-doc table.quadro td{border:1px solid var(--grid);
+  padding:6px 9px; text-align:left; vertical-align:top}
+.p4-doc table.quadro tr:first-child{background:var(--grid); font-weight:700}
+
+.quadro-suprimido{margin:12px 0 18px; padding:12px 15px; border-radius:8px;
+  border:1px dashed var(--grid); background:var(--surface)}
+.quadro-suprimido p{margin:0; font-size:13.5px; color:var(--ink2)}
+
+/* --- afirmacoes da Secao 3 --- */
+.contador{margin:0 0 18px; padding:10px 14px; border-radius:8px;
+  background:var(--surface); border:1px solid var(--grid); font-size:13.5px}
+.contador button{font:inherit; font-size:13px; margin-left:8px; cursor:pointer;
+  border:1px solid var(--grid); background:transparent; color:var(--ink);
+  border-radius:6px; padding:3px 9px}
+.contador button[aria-pressed=true]{background:var(--s1); color:#fff;
+  border-color:var(--s1)}
+
+ul.afs{list-style:none; margin:0 0 16px; padding:0; display:grid; gap:10px}
+ul.afs>li{padding:0 0 0 34px; position:relative}
+li.af{padding:10px 12px 10px 40px; border-radius:8px; background:var(--surface);
+  border:1px solid var(--grid); scroll-margin-top:78px}
+li.af .af-n{position:absolute; left:11px; top:11px; font-size:11.5px;
+  color:var(--mut); font-variant-numeric:tabular-nums; font-weight:700}
+li.af.com{border-left:3px solid var(--s1)}
+li.af.sem{border-left:3px solid var(--grid)}
+li.af:target{outline:2px solid var(--s1); outline-offset:2px}
+
+.ancs{display:flex; flex-wrap:wrap; gap:6px; margin-top:9px}
+a.anc{display:inline-flex; gap:7px; align-items:center; text-decoration:none;
+  font-size:11.5px; padding:3px 9px; border-radius:999px;
+  background:var(--s1); color:#fff}
+a.anc:hover{filter:brightness(1.08)}
+a.anc .anc-ts,a.anc .anc-dim{opacity:.82}
+.sem-anc{display:inline-block; margin-top:9px; font-size:11.5px; padding:3px 9px;
+  border-radius:999px; border:1px dashed var(--mut); color:var(--mut)}
+.sem-anc.exemplo{margin:0}
+.origem{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px;
+  background:var(--realce); color:var(--ink2); border:1px solid var(--grid)}
+li.af.origem-humano .origem{background:var(--s1); color:#fff; border-color:var(--s1)}
+.p4-doc .nota .origem{margin:0 2px}
+
+/* --- matriz de avaliacao --- */
+table.matriz{border-collapse:collapse; font-size:13px; min-width:100%}
+table.matriz th{text-align:left; border-bottom:2px solid var(--grid);
+  padding:8px 11px 8px 0; font-size:12px; color:var(--ink2);
+  text-transform:uppercase; letter-spacing:.03em; white-space:nowrap}
+table.matriz td{border-bottom:1px solid var(--grid); padding:8px 11px 8px 0;
+  vertical-align:top}
+table.matriz td.n,table.matriz th.n{text-align:right;
+  font-variant-numeric:tabular-nums; white-space:nowrap}
+table.matriz td.perfil{font-size:12px; color:var(--ink2)}
+.mini{display:inline-block; vertical-align:middle; width:42px; height:7px;
+  background:var(--grid); border-radius:3px; margin-right:7px; overflow:hidden}
+.mini i{display:block; height:100%; background:var(--s2); border-radius:3px}
+
+@media (max-width:900px){
+  .p4{grid-template-columns:1fr; gap:16px}
+  .p4-sum{position:static; max-height:none}
+  .p4-doc{max-width:none}
+}
+@media (max-width:520px){
+  .p4-kpi b{font-size:22px}
+  li.af{padding-left:34px}
+}
+
+/* --- impressao: o produto precisa sair em PDF legivel --- */
+@media print{
+  header.top,.p4-sum,.contador button,.numeros>summary,
+  .menu,button.tema,.pular,footer.pe .logos{display:none!important}
+  .numeros[open] table{display:table}
+  body{background:#fff; color:#000}
+  .p4{display:block}
+  .p4-doc{max-width:none}
+  .p4-doc section.cap{break-inside:auto}
+  .p4-doc h2{break-before:page; break-after:avoid}
+  .p4-doc section.cap:first-child h2{break-before:auto}
+  .p4-doc h3,.p4-doc h4{break-after:avoid}
+  li.af,blockquote,table,figure{break-inside:avoid}
+  a.anc{background:none; color:#000; border:1px solid #000}
+  a.anc::after{content:" (" attr(href) ")"; font-size:9px}
+  .p4-kpi{border:1px solid #000}
 }
